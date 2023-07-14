@@ -1,5 +1,5 @@
 import  { useState } from 'react';
-import { Container, Row, Col, Button, Alert } from 'react-bootstrap';
+import { Container, Row, Col, Button, Modal } from 'react-bootstrap';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
@@ -10,8 +10,10 @@ const NewTicketPage = () => {
     const [assistanceTime, setAssistanceTime] = useState(null);
 
 
-    const handleFormSubmit = () => {
+    const handleFormSubmit = (values) => {
+      
       setShowAlert(true);
+      
     };
 
   
@@ -25,9 +27,10 @@ const NewTicketPage = () => {
         .required('Vehicle Registration Number is required')
         .matches(/^[a-zA-Z0-9]*$/, 'Invalid Registration Number'),
       breakdownIssue: Yup.string().required('Breakdown Issue is required'),
+      serviceFee:Yup.string(),
       location: Yup.string().required('Location is required'),
       comments: Yup.string().required('Comments is required'),
-      assistanceTime: Yup.date().required('Assistance Time is required'),
+      assistanceTime: Yup.string(),
     });
   
     return (
@@ -35,14 +38,31 @@ const NewTicketPage = () => {
         <Row className="justify-content-center">
           <Col xs={12} md={8} lg={6}className='ticket'>
             <h1>New Ticket</h1>
-            {showAlert && (
-              <Alert
-                variant="success"
-                onClose={() => setShowAlert(false)}
-                dismissible
-              >
-                New Task Created Successfully
-              </Alert>
+            {showAlert &&  (
+               <Modal
+               
+               show = {showAlert}
+               size="lg"
+               aria-labelledby="contained-modal-title-vcenter"
+               centered
+             >
+               <Modal.Header closeButton>
+                 <Modal.Title id="contained-modal-title-vcenter">
+                   Success!
+                 </Modal.Title>
+               </Modal.Header>
+               <Modal.Body>
+                 <h4>Ticket created Successfully</h4>
+                 <p>
+                   Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
+                   dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
+                   consectetur ac, vestibulum at eros.
+                 </p>
+               </Modal.Body>
+               <Modal.Footer>
+                 <Button onClick={()=> setShowAlert(false)}>Close</Button>
+               </Modal.Footer>
+             </Modal>
             )}
             <Formik
               initialValues={{
@@ -53,6 +73,7 @@ const NewTicketPage = () => {
                 vehicleMake: '',
                 vehicleRegNumber: '',
                 breakdownIssue: '',
+                serviceFee:'',
                 location: '',
                 comments: '',
                 assistanceTime: '',
