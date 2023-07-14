@@ -1,38 +1,73 @@
-.App {
-  text-align: center;
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.main-container{
+    background-color: black;
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.main-container:has( .ticket-container){
+    display: block;
+}
+.login-container .login{
+    background-color: white;
+    color: black;
+    padding: 5%;
+    border-radius: 9px;
+    box-shadow: rgba(160, 160, 160, 0.447) 0px 7px 29px 0px;
+}
+.login-container .login > *{
+    margin-bottom: 15px;
+}
+.login h4{
+    text-align: center;
+    background-color: black;
+    color: white;
+    padding-block: 7px;
+    border-radius: 9px;
+}
+.landing-page *{
+    margin-bottom: 15px;
+    text-align: center;
+   
+}
+.landing-page a{
+    text-decoration: none;
+    background-color: darkgreen;
+    color: white;
+    font-size: 24px;
+    padding: 8px;
+    border-radius: 9px;
+    display: block;
+    transition: all 0.2s ease-in;
+    margin-top: 30px;
+    white-space: nowrap;
+}
+.landing-page a:hover{
+    background-color: rgb(1, 71, 1);
+    transform: scale(1.05);
+}
+.form-group{
+    margin-bottom: 10px;
+}
+.form-group ~ .btn{
+    width: 100%;
+    margin-top: 20px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.registration-number{
+    text-transform: uppercase;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.ticket-container .ticket{
+    background-color: white;
+    color: black;
+    padding: 3vw;
+    margin-top: 30px;
+    border-radius: 12px;
+    box-shadow: rgba(160, 160, 160, 0.447) 0px 7px 29px 0px;
 }
