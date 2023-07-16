@@ -20,7 +20,7 @@ const NewTicketPage = () => {
     const validationSchema = Yup.object().shape({
       leadSource: Yup.string().required('Lead Source is required'),
       name: Yup.string().required('Name is required'),
-      contactNumber: Yup.string().required('Contact Number is required'),
+      contactNumber: Yup.number().max("Phone number cannot be greater tha 10").required('Contact Number is required'),
       email: Yup.string().email('Invalid email').required('Email is required'),
       vehicleMake: Yup.string().required('Vehicle Make is required'),
       vehicleRegNumber: Yup.string().trim('No spaces allowed')
@@ -80,6 +80,7 @@ const NewTicketPage = () => {
               }}
               validationSchema={validationSchema}
               onSubmit={handleFormSubmit}
+              
             >
               {({ handleSubmit }) => (
                 <Form onSubmit={handleSubmit}>
@@ -103,7 +104,7 @@ const NewTicketPage = () => {
                   </div>
                   <div className="form-group">
                     <label>Name</label>
-                    <Field type="text" name="name" className="form-control" />
+                    <Field type="text" name="name" className="form-control is-valid" />
                     <ErrorMessage
                       name="name"
                       component="div"

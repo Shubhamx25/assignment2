@@ -30,7 +30,7 @@ const Login = ({ onLogin }) => {
               onSubmit={handleLogin}
             >
               {({ handleSubmit }) => (
-                <Form onSubmit={handleSubmit}>
+                <Form onSubmit={handleSubmit} autoComplete='off'>
                   <div className="form-group">
                     <label >Username</label>
                     <Field

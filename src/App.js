@@ -3,7 +3,9 @@ import "./App.css";
 import Login from "./components/Login";
 import Landing from "./components/Landing";
 import { Routes, Route } from "react-router-dom";
-import NewTicketPage from "./components/NewTicketPage";
+// import NewTicketPage from "./components/NewTicketPage";
+import Ticket from "./components/Ticket";
+
 
 
 const App = () => {
@@ -17,18 +19,18 @@ const App = () => {
   
     return (
 
-      <div className="main-container">
-        {!loggedIn ? (
+       <div className="main-container">
+         {!loggedIn ? (
           <Login onLogin={handleLogin} />
         ) : (
-          <div>
+          <div>  
             <Routes >
                 <Route path="/" element={ <Landing username={username} />} />
-                <Route path="/new-ticket" element={ <NewTicketPage />} />
+                <Route path="/new-ticket" element={ <Ticket />} />
             </Routes>
-             
-          </div>
-        )}
+            
+           </div>
+        )} 
       </div>
     );
   };
