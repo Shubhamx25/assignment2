@@ -216,15 +216,24 @@ const Ticket = () => {
             <div className="mb-3">
                 <label className="form-label">Name</label>
                 <input type="text" className={formData.name ? `form-control is-valid`: `form-control`} id="formGroupExampleInput"  name='name' value={formData.name}
-                onChange={e => handleInput(e.target.name, e.target.value)} onBlur={e => handleBlur(e.target.name,e.target.value)} required/>
+                onChange={e => handleInput(e.target.name, e.target.value)} 
+                onBlur={e => handleBlur(e.target.name,e.target.value)} 
+                autoComplete='off' required/>
                 {warningName && <div className='mt-1 text-danger'>Name cannot contain numbers and special characters</div>}
                 {requiredName && <div className='mt-1 text-danger'>Name is a required field</div>}
             </div>
 
             <div className="mb-3">
                 <label  className="form-label">Contact Number</label>
-                <input type="number" className={formData.contactNumber && !warningContactNumber ? `form-control is-valid`: `form-control`} id="formGroupExampleInput2" name='contactNumber'  value={formData.contactNumber}
-                onBlur={e => handleBlur(e.target.name,e.target.value)} onChange={e => handleInput(e.target.name, e.target.value)}/>
+                <input 
+                     type="number" 
+                     className={formData.contactNumber && !warningContactNumber ? `form-control is-valid`: `form-control`} id="formGroupExampleInput2" 
+                     name='contactNumber'  
+                     value={formData.contactNumber}
+                     autoComplete='off'
+                     onBlur={e => handleBlur(e.target.name,e.target.value)} 
+                     onChange={e => handleInput(e.target.name, e.target.value)}
+                     required/>
                 {requiredContact && <div className='mt-1 text-danger'>Contact number is a required number</div>}
                 {warningContactNumber && <div className='mt-1 text-danger'>Contact Number should consist 10 numbers</div>}
             </div>
@@ -237,7 +246,8 @@ const Ticket = () => {
                        name='email' 
                        value={formData.email} 
                        onBlur={e => handleBlur(e.target.name,e.target.value)}
-                       onChange={e => handleInput(e.target.name, e.target.value)}/>
+                       onChange={e => handleInput(e.target.name, e.target.value)}
+                       autoComplete='off' required/>
                  {requiredEmail && <div className='mt-1 text-danger'>Email is a required field</div>}
                  {warningEmail && <div className='mt-1 text-danger'>Email looks incomplete or wrong</div>}
             </div>
@@ -250,7 +260,8 @@ const Ticket = () => {
                        name='vehicleMake'  
                        value={formData.vehicleMake} 
                        onChange={e => handleInput(e.target.name, e.target.value)} 
-                       onBlur={e => handleBlur(e.target.name,e.target.value)}/>
+                       onBlur={e => handleBlur(e.target.name,e.target.value)}
+                       autoComplete='off' required/>
                 {requiredVehicleMake && <div className='mt-1 text-danger'>Vehicle make is a required field</div>}
             </div>
 
@@ -263,7 +274,8 @@ const Ticket = () => {
                       value={formData.vehicleRegNumber}  
                       name='vehicleRegNumber'
                       onChange={e => handleInput(e.target.name, e.target.value)} 
-                      onBlur={e => handleBlur(e.target.name,e.target.value)}/>
+                      onBlur={e => handleBlur(e.target.name,e.target.value)}
+                      autoComplete='off' required/>
                  {requiredVehicleRegNumber && <div className='mt-1 text-danger'>Vehicle registration number is a required field</div>}
                  {warningVehicleRegNumber && <div  className='mt-1 text-danger'> Vehicle registration number cannot contain spaces or specail characters</div>}
             </div>
@@ -289,7 +301,8 @@ const Ticket = () => {
                        value={formData.location} 
                        name='location'
                        onBlur={e => handleBlur(e.target.name,e.target.value)}
-                       onChange={e => handleInput(e.target.name, e.target.value)} />
+                       onChange={e => handleInput(e.target.name, e.target.value)} 
+                       autoComplete='off' required/>
                 {requiredLocation && <div className='mt-1 text-danger'>Location is a required field</div>}
             </div>
             <div className="mb-3">

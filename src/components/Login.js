@@ -37,6 +37,7 @@ const Login = ({ onLogin }) => {
                       type="text"
                       name="username"
                       className="form-control"
+                      
                     />
                     <ErrorMessage
                       name="username"
